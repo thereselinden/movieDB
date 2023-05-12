@@ -1,9 +1,5 @@
 const MarkAsSeenBtn = () => {
-  return (
-    <div>
-      <h1>Mark as seen</h1>
-    </div>
-  );
+  return <button>Seen it</button>;
 };
 
 export default MarkAsSeenBtn;
