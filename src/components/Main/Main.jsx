@@ -1,5 +1,5 @@
-import MovieList from '../MovieList/MovieList';
-import MovieDetails from '../MovieDetails/MovieDetails';
+import MovieList from '../../pages/MovieList/MovieList';
+import MovieDetails from '../../pages/MovieDetails/MovieDetails';
 import About from '../../pages/About/About';
 import Contact from '../../pages/Contact/Contact';
 
@@ -7,13 +7,12 @@ import './main.css';
 
 const Main = () => {
   return (
-    <div>
-      <h1>Main</h1>
+    <main>
       <MovieList />
       <MovieDetails />
       <About />
       <Contact />
-    </div>
+    </main>
   );
 };
 
