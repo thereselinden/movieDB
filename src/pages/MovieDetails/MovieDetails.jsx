@@ -1,9 +1,8 @@
-import MarkAsSeenBtn from '../MarkAsSeenBtn/MarkAsSeenBtn';
+import MarkAsSeenBtn from '../../components/MarkAsSeenBtn/MarkAsSeenBtn';
 
 const MovieDetails = () => {
   return (
     <div>
-      <h1>Movie Details</h1>
       <MarkAsSeenBtn />
     </div>
   );
