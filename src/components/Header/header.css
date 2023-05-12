@@ -1,0 +1,12 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--darkMaroon);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
