@@ -1,8 +1,12 @@
+import './navLinks.css';
+
 const NavLinks = () => {
   return (
-    <div>
-      <h1>Navlinks</h1>
-    </div>
+    <ul>
+      <li>Movies</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
   );
 };
 
