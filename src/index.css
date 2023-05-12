@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --darkMaroon: '#643843';
+  --darkPink: '#99627A';
+  --oldPink: '#C88EA7';
+  --beige: '#E7CBCB';
+}
