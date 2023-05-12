@@ -2,7 +2,7 @@ const FilterDropDown = () => {
   return (
     <select>
       <option value="popular">Popular</option>
-      <option value="topRated">Top Rated</option>
+      <option value="top_rated">Top Rated</option>
       <option value="upcoming">Upcoming</option>
     </select>
   );
