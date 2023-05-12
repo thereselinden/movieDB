@@ -1,9 +1,20 @@
-.seen-info {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
+.my-movies {
+  position: relative;
 }
 
-.seen-info img {
-  width: 30px;
+.my-movies > svg {
+  font-size: 24px;
+}
+.my-movies p {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  background-color: #be7878;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2e1414;
 }
