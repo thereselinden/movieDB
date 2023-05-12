@@ -1,0 +1,9 @@
+.seen-info {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.seen-info img {
+  width: 30px;
+}
