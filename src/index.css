@@ -4,9 +4,25 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #643843;
+  color: #e7cbcb;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* 
+
 :root {
   --darkMaroon: '#643843';
   --darkPink: '#99627A';
   --oldPink: '#C88EA7';
   --beige: '#E7CBCB';
-}
+} */
