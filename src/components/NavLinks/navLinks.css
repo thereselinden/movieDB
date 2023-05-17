@@ -5,3 +5,7 @@ ul {
   margin-right: 0.8rem;
   text-transform: uppercase;
 }
+
+ul > li > .active {
+  text-decoration: underline;
+}
