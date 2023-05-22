@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
 import './filterDropDown.css';
 
-const FilterDropDown = ({ handleFilterChange }) => {
-  const [category, setCategory] = useState('popular');
+const FilterDropDown = ({ filter, setFilter }) => {
+  // tidigare props handleFilterChange
+  // const [category, setCategory] = useState('popular');
 
-  useEffect(() => {
-    handleFilterChange(category);
-  }, [category, handleFilterChange]);
+  // useEffect(() => {
+  //   handleFilterChange(category);
+  // }, [category, handleFilterChange]);
 
   return (
-    <select onChange={e => setCategory(e.target.value)}>
+    // <select value={category} onChange={e => setCategory(e.target.value)}>
+    <select
+      value={filter}
+      onChange={e => setFilter({ filter: e.target.value })}
+    >
       <option value="popular">Popular</option>
       <option value="top_rated">Top Rated</option>
       <option value="upcoming">Upcoming</option>
