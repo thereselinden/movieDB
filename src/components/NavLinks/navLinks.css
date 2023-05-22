@@ -1,4 +1,4 @@
-ul {
+.nav-links {
   display: flex;
   list-style-type: none;
   gap: 0.8rem;
@@ -6,6 +6,6 @@ ul {
   text-transform: uppercase;
 }
 
-ul > li > .active {
+.nav-links > li > .active {
   text-decoration: underline;
 }
