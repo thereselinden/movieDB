@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
 
@@ -6,18 +7,54 @@ import useFetch from '../../hooks/useFetch';
 import MovieActors from './MovieActors/MovieActors';
 import { minutesToHours, roundToOneDec } from '../../utils/helpers';
 import './movieDetails.css';
+import useMovie from '../../MovieContext';
 
 const MovieDetails = () => {
   let { id } = useParams();
+  const [seenMovies, setSeenMovies] = useState(false);
+  const { movies, addToSeen, removeFromSeen } = useMovie();
+
+  console.log('from context movies: ', movies.movies);
+
   const baseUrl = `${import.meta.env.VITE_API_URL}/${id}?`;
   const api_key = `api_key=${import.meta.env.VITE_API_KEY}`;
   const url = baseUrl + api_key + '&append_to_response=credits';
 
   const { data: movie, isLoading, errorMessage } = useFetch(url);
-  console.log('details: ', movie, isLoading, errorMessage);
+
+  console.log('movie from fetch', movie);
 
   const imgUrl = 'https://image.tmdb.org/t/p/w500/';
   const posterImgUrl = 'https://image.tmdb.org/t/p/w300/';
+
+  useEffect(() => {
+    // leta i movies arr från context kolla först att vi fått tillbaka movie från fetch
+    if (movie) {
+      // const hasSeenMovie = movies.movies.find(
+      //   seenMovie => seenMovie.id === movie.id
+      // );
+      // console.log('has seen movie inside useEffect', hasSeenMovie);
+      // if (hasSeenMovie) {
+      //   console.log('updating seenMovies to true');
+      //   setSeenMovies(true);
+      // } else {
+      //   console.log('updating seenMovies to false');
+      //   setSeenMovies(false);
+      // }
+    }
+  }, [movie, movies]);
+
+  const handleSeenMovieClick = () => {
+    console.log('inside handleClick seenMovies state: ', seenMovies);
+    // if (seenMovies) {
+    //   removeFromSeen(movie);
+    // } else {
+    //   addToSeen(movie);
+    // }
+    if (!seenMovies) {
+      addToSeen(movie);
+    }
+  };
 
   return (
     <>
@@ -57,7 +94,7 @@ const MovieDetails = () => {
                     <AiFillStar />
                     <span>{roundToOneDec(movie.vote_average)}</span>/10
                   </p>
-                  <MarkAsSeenBtn />
+                  <MarkAsSeenBtn handleSeenMovie={handleSeenMovieClick} />
                 </div>
                 <div className="content-bottom">
                   <h2>Overview</h2>
