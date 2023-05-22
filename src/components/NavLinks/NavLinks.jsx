@@ -3,7 +3,7 @@ import './navLinks.css';
 
 const NavLinks = () => {
   return (
-    <ul>
+    <ul className="nav-links">
       <li>
         <NavLink to="/">Movies</NavLink>
       </li>
