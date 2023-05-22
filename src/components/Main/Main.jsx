@@ -6,6 +6,7 @@ import Contact from '../../pages/Contact/Contact';
 import Actor from '../../pages/Actor/Actor';
 
 import './main.css';
+import NotFound from '../NotFound/NotFound';
 
 const Main = () => {
   return (
@@ -16,6 +17,7 @@ const Main = () => {
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="actor/:id" element={<Actor />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
   );
