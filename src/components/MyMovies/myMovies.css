@@ -18,3 +18,40 @@
   justify-content: center;
   color: #2e1414;
 }
+
+.seen-movies-list {
+  position: absolute;
+  background: #ebdede;
+  color: grey;
+  width: 200px;
+  right: 0;
+  list-style: none;
+  padding: 0.2rem;
+  z-index: 99;
+}
+
+.hide-movie-list {
+  display: none;
+}
+
+.seen-movies-list > li {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid lightgrey;
+}
+
+.seen-movies-list > li > img {
+  width: 50px;
+}
+
+.seen-movies-list > li > svg {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.seen-movies-list > li > svg:hover {
+  filter: invert(1);
+}
