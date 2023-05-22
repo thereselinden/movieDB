@@ -6,27 +6,21 @@ export const MovieContext = createContext(initialState);
 
 export const MovieProvider = ({ children }) => {
   const [state, dispatch] = useReducer(movieReducer, initialState);
-  console.log('state', state.updateMovieArr);
+  console.log('state Context', state);
 
   const addToSeen = movie => {
-    const updateMovieArr = state.movies.concat(movie);
-
     dispatch({
       type: ACTIONS.ADD_TO_SEEN,
-      payload: {
-        updateMovieArr,
-      },
+      payload: movie,
     });
   };
 
   const removeFromSeen = id => {
-    const updateMovieArr = state.movies.filter(movie => movie.id !== id);
+    const filterMovieArr = state.movies.filter(movie => movie.id !== id);
 
     dispatch({
       type: ACTIONS.REMOVE_FROM_SEEN,
-      payload: {
-        movies: updateMovieArr,
-      },
+      payload: filterMovieArr,
     });
   };
 

@@ -2,6 +2,7 @@ import { ACTIONS } from './action-types';
 
 export const initialState = {
   movies: [],
+  name: 'Therese',
 };
 
 const movieReducer = (state, action) => {
@@ -9,12 +10,12 @@ const movieReducer = (state, action) => {
     case ACTIONS.ADD_TO_SEEN:
       return {
         ...state,
-        movies: action.payload,
+        movies: [...state.movies, action.payload],
       };
     case ACTIONS.REMOVE_FROM_SEEN:
       return {
         ...state,
-        movies: action.payload.id,
+        movies: action.payload,
       };
     default:
       return state;
