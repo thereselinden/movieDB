@@ -20,12 +20,18 @@ const ActorCard = ({ actor }) => {
             }
             alt={`${actor.name} profile image`}
           />
-          <div>
+          <div className="actor-info">
             <h1>{actor.name}</h1>
-            <p>{actor.biography}</p>
-            <p>Birth: {actor.birthday}</p>
-            <p>Death: {actor.deathday}</p>
-            <p>Place of Birth: {actor.place_of_birth}</p>
+            <p className="actor-bio">{actor.biography}</p>
+            <p className="actor-birth">
+              <span>Birth:</span> {actor.birthday}
+            </p>
+            <p className="actor-death">
+              <span>Death:</span> {actor.deathday}
+            </p>
+            <p className="actor-place-birth">
+              <span>Place of Birth:</span> {actor.place_of_birth}
+            </p>
           </div>
         </div>
       </section>

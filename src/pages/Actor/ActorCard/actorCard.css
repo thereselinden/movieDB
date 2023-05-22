@@ -1,0 +1,40 @@
+.actor-container {
+  margin: 2rem;
+}
+
+.actor-container > svg {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.actor-container > svg:hover {
+  scale: 1.05;
+}
+
+.actor-content {
+  display: grid;
+  grid-row-gap: 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.actor-content > div {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.actor-info .actor-bio {
+  height: 15rem;
+  overflow: scroll;
+}
+
+.actor-info > p > span {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .actor-content {
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 1rem;
+  }
+}
