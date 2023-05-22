@@ -14,44 +14,31 @@ const MovieDetails = () => {
   const [seenMovies, setSeenMovies] = useState(false);
   const { movies, addToSeen, removeFromSeen } = useMovie();
 
-  console.log('from context movies: ', movies.movies);
-
   const baseUrl = `${import.meta.env.VITE_API_URL}/${id}?`;
   const api_key = `api_key=${import.meta.env.VITE_API_KEY}`;
   const url = baseUrl + api_key + '&append_to_response=credits';
 
   const { data: movie, isLoading, errorMessage } = useFetch(url);
 
-  console.log('movie from fetch', movie);
-
   const imgUrl = 'https://image.tmdb.org/t/p/w500/';
   const posterImgUrl = 'https://image.tmdb.org/t/p/w300/';
 
   useEffect(() => {
     // leta i movies arr från context kolla först att vi fått tillbaka movie från fetch
-    if (movie) {
-      // const hasSeenMovie = movies.movies.find(
-      //   seenMovie => seenMovie.id === movie.id
-      // );
-      // console.log('has seen movie inside useEffect', hasSeenMovie);
-      // if (hasSeenMovie) {
-      //   console.log('updating seenMovies to true');
-      //   setSeenMovies(true);
-      // } else {
-      //   console.log('updating seenMovies to false');
-      //   setSeenMovies(false);
-      // }
+    if (movie && movies.length > 0) {
+      const hasSeenMovie = movies.find(seenMovie => seenMovie.id === movie.id);
+      if (hasSeenMovie) {
+        setSeenMovies(true);
+      } else {
+        setSeenMovies(false);
+      }
     }
-  }, [movie, movies]);
+  }, [movie, movies, movies.length]);
 
   const handleSeenMovieClick = () => {
-    console.log('inside handleClick seenMovies state: ', seenMovies);
-    // if (seenMovies) {
-    //   removeFromSeen(movie);
-    // } else {
-    //   addToSeen(movie);
-    // }
-    if (!seenMovies) {
+    if (seenMovies) {
+      removeFromSeen(movie.id);
+    } else {
       addToSeen(movie);
     }
   };
