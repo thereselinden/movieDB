@@ -3,7 +3,7 @@ import MovieList from '../../pages/MovieList/MovieList';
 import MovieDetails from '../../pages/MovieDetails/MovieDetails';
 import About from '../../pages/About/About';
 import Contact from '../../pages/Contact/Contact';
-import Actor from '../Actor/Actor';
+import Actor from '../../pages/Actor/Actor';
 
 import './main.css';
 
