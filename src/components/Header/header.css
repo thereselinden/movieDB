@@ -1,4 +1,8 @@
-header {
+.MuiPaper-root {
+  background-color: #353333;
+  color: #fff;
+}
+/* header {
   height: 4rem;
   display: flex;
   justify-content: space-between;
@@ -19,4 +23,4 @@ header h1 > span {
 header > div {
   display: flex;
   align-items: center;
-}
+} */

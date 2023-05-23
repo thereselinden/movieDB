@@ -1,4 +1,13 @@
-article {
+.movie-rating {
+  display: flex;
+  align-items: center;
+}
+
+.movie-rating > svg {
+  margin-right: 0.3rem;
+}
+
+/* article {
   position: relative;
 }
 
@@ -35,4 +44,4 @@ article > a > div > p {
 
 article > a > div > p > svg {
   margin-right: 0.3rem;
-}
+} */
