@@ -5,12 +5,18 @@ import About from '../../pages/About/About';
 import Contact from '../../pages/Contact/Contact';
 import Actor from '../../pages/Actor/Actor';
 
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+
 import './main.css';
 import NotFound from '../NotFound/NotFound';
 
 const Main = () => {
   return (
-    <main>
+    // <main>
+    <Box component="main" sx={{ px: { sm: 3 }, pt: 3 }}>
+      <Toolbar />
+
       <Routes>
         <Route path="/" element={<MovieList />} />
         <Route path=":id" element={<MovieDetails />} />
@@ -19,7 +25,8 @@ const Main = () => {
         <Route path="actor/:id" element={<Actor />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </main>
+    </Box>
+    // </main>
   );
 };
 

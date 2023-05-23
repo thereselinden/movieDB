@@ -1,9 +1,10 @@
 import FilterDropDown from '../../components/FilterDropDown/FilterDropDown';
 import MovieCard from '../../components//MovieCard/MovieCard';
 import useFetch from '../../hooks/useFetch';
-import './movieList.css';
-import { useCallback, useState } from 'react';
+//import './movieList.css';
 import { useSearchParams } from 'react-router-dom';
+
+import Grid from '@mui/material/Grid';
 
 const MovieList = () => {
   const [filter, setFilter] = useSearchParams({ filter: 'popular' });
@@ -12,43 +13,22 @@ const MovieList = () => {
     'filter'
   )}?api_key=${import.meta.env.VITE_API_KEY}`;
 
-  // const defaultUrl = `${import.meta.env.VITE_API_URL}/popular?api_key=${
-  //   import.meta.env.VITE_API_KEY
-  // }`;
-
-  //const [url, setUrl] = useState(defaultUrl);
-
   const { data: movies, isLoading, errorMessage } = useFetch(url);
 
-  // useCallback för att ta bort eslint in FilterDropDown
-  // const handleFilterChange = useCallback(category => {
-  //   setUrl(
-  //     `${import.meta.env.VITE_API_URL}/${category}?api_key=${
-  //       import.meta.env.VITE_API_KEY
-  //     }`
-  //   );
-  // }, []);
-
   return (
-    <div>
+    <>
       <FilterDropDown filter={filter.get('filter')} setFilter={setFilter} />
-      {/* <FilterDropDown handleFilterChange={handleFilterChange} /> */}
       {errorMessage && <p>Something went wrong</p>}
       {isLoading && <p>Loading.....</p>}
-      <h3>
-        {filter.get('filter') === 'top_rated'
-          ? 'Top Rated'
-          : filter.get('filter')}
-        movies
-      </h3>
-
-      <section className="movie-grid">
+      <Grid container sx={{ pt: 3 }}>
         {movies &&
           movies.results.map(movie => (
-            <MovieCard key={movie.id} movie={movie} />
+            <Grid item xs={6} sm={4} md={3} key={movie.id} component="article">
+              <MovieCard movie={movie} />
+            </Grid>
           ))}
-      </section>
-    </div>
+      </Grid>
+    </>
   );
 };
 
